@@ -160,3 +160,10 @@ resource "aws_instance" "big-ip" {
     UK-SE = var.uk_se_name
   }
 }
+output "f5_password" {
+  value = random_string.password.result
+}
+
+output "f5_ui" {
+  value = "https://${aws_eip.f5-mgmt.public_ip}"
+}
