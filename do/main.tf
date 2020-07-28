@@ -7,9 +7,9 @@ data "terraform_remote_state" "aws_demo" {
 }
 
 provider "bigip" {
-  address = "${var.url}"
-  username = "${var.username}"
-  password = "${var.password}"
+  address = data.terraform_remote_state.aws_demo.outputs.f5_ui
+  username = data.terraform_remote_state.aws_demo.outputs.f5_user
+  password = data.terraform_remote_state.aws_demo.outputs.f5_password
 }
 
 resource "bigip_do"  "do-example" {

@@ -164,6 +164,10 @@ resource "aws_instance" "big-ip" {
     UK-SE = var.uk_se_name
   }
 }
+output "f5_user" {
+  value = var.username
+}
+
 output "f5_password" {
   value = random_string.password.result
 }
