@@ -31,3 +31,14 @@ variable uk_se_name {
   type = string
   default = "cliff"
 }
+variable username {
+  description = "User Name"
+  type = string
+  default = "admin"
+}
+
+variable port {
+  description = "port"
+  type = string
+  default = "443"
+}
