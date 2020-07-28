@@ -45,27 +45,9 @@
             "allowService": "none",
             "trafficGroup": "traffic-group-local-only"
         },
-        "internal": {
-            "class": "VLAN",
-            "tag": 1002,
-            "mtu": 1500,
-            "interfaces": [
-                {
-                    "name": "1.2",
-                    "tagged": false
-                }
-            ]
-        },
-        "internal-self": {
-            "class": "SelfIp",
-            "address": ${internal_ip},
-            "vlan": "internal",
-            "allowService": "default",
-            "trafficGroup": "traffic-group-local-only"
-        },
         "default": {
             "class": "Route",
-            "gw": ${internal_gw},
+            "gw": ${external_gw},
             "network": "default",
             "mtu": 1500 
         }       

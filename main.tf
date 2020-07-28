@@ -175,3 +175,14 @@ output "f5_password" {
 output "f5_ui" {
   value = "https://${aws_eip.f5-mgmt.public_ip}"
 }
+output "f5_pub_ip" {
+  value = aws_network_interface.f5-public.private_ip
+}
+
+data "aws_subnet" "f5_pub_data" {
+  id = module.vpc.public_subnets[1]
+}
+
+output "f5_pub_cidr" {
+  value = data.aws_subnet.f5_pub_data.cidr_block
+}
